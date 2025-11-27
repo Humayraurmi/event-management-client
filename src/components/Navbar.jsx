@@ -2,13 +2,14 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase.config';
+import { auth } from './firebase.config.js';
 import { useRouter } from 'next/navigation';
 
+// 🚨 CHANGE 1: Remove 'Booking' from the public links array
 const publicNavLinks = [
     { name: 'Home', href: '/' },
     { name: 'Events', href: '/events' },
-    { name: 'Booking', href: '/booking' },
+    // { name: 'Booking', href: '/booking' }, <-- Removed this line
 ];
 
 export default function Navbar() {
@@ -42,7 +43,8 @@ export default function Navbar() {
         name: user?.displayName || user?.email?.split('@')[0] || 'User',
         email: user?.email || '',
     };
-    const dashboardLink = isAuthenticated ? { name: 'Dashboard', href: '/manage-events' } : null;
+    
+    const dashboardLink = isAuthenticated ? { name: 'My Bookings', href: '/booking' } : null; 
 
     const AuthControls = () => {
         if (loading) {
@@ -68,14 +70,16 @@ export default function Navbar() {
                                 <p className="font-semibold truncate">{displayUser.name}</p>
                                 <p className="text-xs text-gray-500 truncate">{displayUser.email}</p>
                             </div>
-                            <Link href="/manage-events" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition">
+                            
+                            <Link href="/dashboard" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition">
                                 🏠 Dashboard
                             </Link>
                             <Link href="/add-event" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition">
                                 Add Event
-                            </Link>           
-                            <Link href="/manage-events" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition">
-                                ⚙️ Manage Events
+                            </Link> 
+                            
+                            <Link href="/booking" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition">
+                                🎟️ My Bookings
                             </Link>
                             <button
                                 onClick={handleSignOut}
@@ -118,9 +122,10 @@ export default function Navbar() {
                                 {link.name}
                             </Link>
                         ))}
+                        
                         {dashboardLink && (<Link
                             key={dashboardLink.name}
-                            href={dashboardLink.href}
+                            href={dashboardLink.href} 
                             className="text-gray-600 hover:text-blue-600 font-medium transition py-1"
                         >
                             {dashboardLink.name}
@@ -128,6 +133,7 @@ export default function Navbar() {
                         )}
                         <AuthControls />
                     </div>
+                    
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
