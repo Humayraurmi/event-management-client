@@ -32,15 +32,15 @@ export default function Testimonials() {
 
   const cardVariants = {
     offscreen: { opacity: 0, y: 50 },
-    onscreen: { 
-      opacity: 1, 
+    onscreen: {
+      opacity: 1,
       y: 0,
       transition: { type: "spring", bounce: 0.3, duration: 0.8 }
     }
   };
 
   return (
-    <div> 
+    <div>
       <h2 className="text-3xl font-bold text-center text-black mb-12">
         What People Are Saying
       </h2>
@@ -49,20 +49,14 @@ export default function Testimonials() {
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={testimonial.id}
-            className={`
-              w-full 
-              sm:w-3/4 
-              lg:w-[calc(50%-1.25rem)] 
-              max-w-md 
-              ${index === 2 ? 'mx-auto' : ''} 
-              bg-gradient-to-tr from-white to-blue-50 rounded-3xl shadow-lg p-8 flex flex-col items-center text-center transform hover:-translate-y-3 hover:scale-105 transition duration-500 ease-in-out relative
-            `}
+            className="w-full sm:w-3/4 lg:w-[calc(50%-1.25rem)] max-w-md mx-auto bg-gradient-to-tr from-white to-blue-50 rounded-3xl shadow-lg p-8 flex flex-col items-center text-center hover:-translate-y-3 hover:scale-105 transition duration-500 ease-in-out relative"
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.5 }}
             variants={cardVariants}
             transition={{ delay: index * 0.2 }}
           >
+
             <span className="absolute top-4 left-4 text-blue-200 text-4xl font-bold select-none">
               “
             </span>
@@ -73,7 +67,7 @@ export default function Testimonials() {
               className="w-24 h-24 rounded-full object-cover mb-5 border-4 border-blue-400 shadow-inner"
             />
 
-            <p className="text-gray-800 italic mb-3 relative z-10"> 
+            <p className="text-gray-800 italic mb-3 relative z-10">
               {testimonial.message}
             </p>
 
