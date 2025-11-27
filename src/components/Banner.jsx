@@ -44,10 +44,16 @@ export default function Hero() {
             </div>
 
             <style jsx>{`
-        @keyframes fadeUp {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
+        /* globals.css ba Hero.module.css e */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fadeUp {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
       `}</style>
         </section>
     );
