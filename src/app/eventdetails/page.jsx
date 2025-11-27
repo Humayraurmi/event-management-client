@@ -59,7 +59,7 @@ export default function EventDetailsPage() {
                 return;
             }
             try {
-                const res = await fetch(`http://localhost:3000/events/${slug}`);
+                const res = await fetch(`event-management-server-ashy.vercel.app/events/${slug}`);
                 if (!res.ok) {
                     setEvent(null);
                     setLoading(false);

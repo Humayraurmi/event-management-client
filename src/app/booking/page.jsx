@@ -4,7 +4,7 @@ import { useBookingContext } from "@/components/BookingContext";
 import { XCircle, Calendar, Tag, Eye, Trash2, Clock, List } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "event-management-server-ashy.vercel.app";
 
 export default function BookingsPage() {
     const { bookedEvents, removeBookedEvent } = useBookingContext();

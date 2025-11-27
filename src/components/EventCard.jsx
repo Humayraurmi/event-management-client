@@ -8,7 +8,7 @@ export default function EventCards() {
     const router = useRouter(); 
 
     useEffect(() => {
-        fetch("http://localhost:3000/events")
+        fetch("event-management-server-ashy.vercel.app/events")
             .then(res => res.json())
             .then(data => setEvents(data.slice(0, 3)));
     }, []);

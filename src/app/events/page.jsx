@@ -12,7 +12,7 @@ export default function EventsPage() {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const res = await fetch("http://localhost:3000/events");
+                const res = await fetch("event-management-server-ashy.vercel.app/events");
                 const data = await res.json();
                 setEvents(data);
             } catch (err) {

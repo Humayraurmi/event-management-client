@@ -5,7 +5,7 @@ import { useAuth } from '@/components/AuthContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'event-management-server-ashy.vercel.app';
 
 const showToast = (message, type = 'success') => {
     console.log(`Toast: ${message} (${type})`);
