@@ -4,12 +4,13 @@ import EventCards from "@/components/EventCard";
 import Banner from "./../components/Banner";
 import Testimonials from "@/components/Testimonials";
 import Features from "@/components/FeaturedEvents";
+import Hero from "./../components/Banner";
 
 
 export default function Home() {
   return (
     <div className="bg-gray-50">
-      <Banner />
+      <Hero></Hero>
       <div className="flex flex-col lg:flex-row  max-w-7xl mx-auto">
 
         <div className="lg:w-1/2 w-full bg-amber-50 p-5">
