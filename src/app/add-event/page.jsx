@@ -26,7 +26,7 @@ const INITIAL_FORM_STATE = {
     isFeatured: false
 };
 
-const API_BASE_URL = 'event-management-server-ashy.vercel.app'; 
+const API_BASE_URL = 'https://event-management-server-ashy.vercel.app/'; 
 
 export default function AddEventPage() {
     const { user, loading } = useAuth();
